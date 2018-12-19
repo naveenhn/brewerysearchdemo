@@ -9,6 +9,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Before;
@@ -61,7 +63,7 @@ public class BreweryRestEndpointTest {
 				.city("Phx")
 				.build();
 		
-		breweries = List.of(brewery);
+		breweries = Arrays.asList(brewery);
 		
 	}
 
