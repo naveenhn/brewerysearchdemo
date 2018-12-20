@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,13 +27,14 @@ public class BreweryRestEndpoint {
 	@Autowired
 	private BreweryRepository breweryRepo;
 
+	@CrossOrigin
 	@GetMapping(value= "/breweries")
 	public List<Brewery> breweries(@RequestParam(name="page", defaultValue="1") String page, @RequestParam(name="count", defaultValue="10")String count ) throws Exception {
 		
 		return breweryRepo.getBreweries(page, count);
 	}
 	
-	
+	@CrossOrigin
 	@GetMapping(value= "/breweries/search")
 	public List<Brewery> search(@RequestParam(name="query") String query, @RequestParam(name="page", defaultValue="1") String page, @RequestParam(name="count", defaultValue="10")String count ) throws Exception {
 		
